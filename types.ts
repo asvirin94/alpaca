@@ -4,7 +4,7 @@ export type WishlistType = {
 }
 
 export type WishListItemType = {
-    _key: string;
+    _key?: string;
     name: string;
     price: number;
     url: string;
