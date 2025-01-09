@@ -6,17 +6,21 @@ import Link from 'next/link'
 
 export default async function Home() {
     const session = await auth()
-    const wishlists: WishlistType[] = await client.fetch(WISHLISTS_BY_ID_QUERY, {id: session?.id})
+    const wishlists: WishlistType[] = await client.fetch(WISHLISTS_BY_ID_QUERY, {id: session?.id || null})
 
-    return (
-        <div className="p-10">
-            <div className="mt-10 flex gap-8">
-                {wishlists.length > 0 && wishlists.map((wishlist: WishlistType) => (
-                    <Link key={wishlist._id} href={`/wishlist/${wishlist._id}`}>
-                        <p>{wishlist.originalTitle}</p>
-                    </Link>
-                ))}
+    if (session?.user) {
+        return (
+            <div className="p-10">
+                <div className="mt-10 flex gap-8">
+                    {wishlists.length > 0 && wishlists.map((wishlist: WishlistType) => (
+                        <Link key={wishlist._id} href={`/wishlist/${wishlist._id}`}>
+                            <p>{wishlist.originalTitle}</p>
+                        </Link>
+                    ))}
+                </div>
             </div>
-        </div>
-    );
+        );
+    } else {
+        return null
+    }
 }
