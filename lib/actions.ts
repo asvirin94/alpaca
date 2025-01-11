@@ -14,3 +14,14 @@ export const createItem = async (item: WishListItemType, id: string) => {
 export const deleteItem = async (id: string, key: string) => {
     await writeClient.patch(id).unset([`items[_key=="${key}"]`]).commit()
 }
+
+export const createWishlist = async () => {
+    await writeClient.create({
+        _type: 'wishlist',
+        originalTitle: 'Test Test Test',
+        owner: {
+            "_ref": "5CRSzLt6xAbzM3VbXwmEWL",
+            "_type": "reference"
+        }
+    })
+}

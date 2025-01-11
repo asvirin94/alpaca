@@ -3,19 +3,37 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --font-montserrat: 'MontserratAlternates', sans-serif;
+  --font-raleway: 'Raleway', sans-serif;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer utilities {
+  .raleway-font {
+    font-family: var(--font-raleway);
+  }
+
+  .montserrat-font {
+    font-family: var(--font-montserrat);
+  }
+
+  .container {
+    @apply max-w-full mx-auto py-[25px] px-[20px] lg:py-[70px] lg:px-[40px]
+  }
+
+  .flex-between {
+    @apply flex justify-between items-center;
+  }
+
+  .section-name {
+    @apply raleway-font text-primary text-[16px] leading-[19px] mt-[50px] mb-[25px] font-medium
+  }
+
+  .wishlist-card {
+    @apply relative w-[160px] h-[240px] rounded-[20px] bg-primary
   }
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
-}
+
+
+
+
