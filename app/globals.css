@@ -17,7 +17,7 @@
   }
 
   .container {
-    @apply max-w-full mx-auto py-[25px] px-[20px] lg:py-[70px] lg:px-[40px]
+    @apply max-w-full xl:max-w-[1200px] mx-auto py-[25px] px-[20px] lg:py-[70px] lg:px-[40px]
   }
 
   .flex-between {
