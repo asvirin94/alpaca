@@ -18,7 +18,9 @@ export default {
   		colors: {
   			primary: {
   				DEFAULT: '#828282',
-				100: '#D9D9D9'
+				100: '#D9D9D9',
+				200: '#333333',
+				300: '#BDBDBD'
   			},
   			light: {
   				'100': '#FDFBFA',
@@ -36,5 +38,5 @@ export default {
   	}
   },
 	// eslint-disable-next-line @typescript-eslint/no-require-imports
-  plugins: [require("tailwindcss-animate")],
+  plugins: [require("tailwindcss-animate"), require("@tailwindcss/typography")],
 } satisfies Config;

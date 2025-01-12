@@ -7,11 +7,11 @@
   --font-raleway: 'Raleway', sans-serif;
 }
 
-@layer utilities {
-  .raleway-font {
-    font-family: var(--font-raleway);
-  }
+body {
+  font-family: var(--font-raleway) !important;
+}
 
+@layer utilities {
   .montserrat-font {
     font-family: var(--font-montserrat);
   }
@@ -25,11 +25,15 @@
   }
 
   .section-name {
-    @apply raleway-font text-primary text-[16px] leading-[19px] mt-[50px] mb-[25px] font-medium
+    @apply text-primary text-[16px] leading-[19px] mt-[50px] mb-[25px] font-semibold
   }
 
   .wishlist-card {
-    @apply relative w-[160px] h-[240px] rounded-[20px] bg-primary
+    @apply relative flex w-[160px] h-[240px] rounded-[20px] bg-primary
+  }
+
+  .menu-item {
+    @apply font-semibold text-light-100 text-[14px] leading-[16px]
   }
 }
 

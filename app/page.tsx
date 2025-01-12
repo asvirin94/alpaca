@@ -7,11 +7,11 @@ export default function Home() {
         <>
             <div className='container'>
                 <Header/>
-                <h2 className='section-name'>мои списки</h2>
+                <h2 className='section-name'>МОИ СПИСКИ</h2>
                 <WishlistsSlider/>
-                <h2 className='section-name'>списки друзей</h2>
+                <h2 className='section-name'>СПИСКИ ДРУЗЕЙ</h2>
                 <WishlistsSlider/>
-                <h2 className='section-name'>рекомендации</h2>
+                <h2 className='section-name'>РЕКОМЕНДАЦИИ</h2>
                 <WishlistsSlider/>
             </div>
             <Footer/>
