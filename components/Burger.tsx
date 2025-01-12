@@ -19,15 +19,21 @@ export default async function Burger() {
             </SheetTrigger>
             <SheetContent className='w-[300px] text-start bg-primary-200'>
                 <SheetHeader>
-                    <SheetTitle className='text-[20px] leading-[26px] font-bold text-primary-300'>
+                    <SheetTitle>
                         {session
-                            ? session?.user?.name
+                            ? (
+                                <p className='text-[22px] leading-[26px] font-bold text-primary-300'>
+                                    {session?.user?.name}
+                                </p>
+                            )
                             : (
                                 <form action={async () => {
                                     'use server'
                                     await signIn()
                                 }}>
-                                    <button type='submit'>Войти</button>
+                                    <button type='submit'>
+                                        <p className='menu-item'>ВОЙТИ</p>
+                                    </button>
                                 </form>
                             )
                         }
