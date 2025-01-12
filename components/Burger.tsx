@@ -14,8 +14,8 @@ export default async function Burger() {
 
     return (
         <Sheet>
-            <SheetTrigger>
-                <Menu className="text-primary" size={50}/>
+            <SheetTrigger className='focus-visible:outline-none focus:outline-none'>
+                <Menu className="text-primary focus-visible:outline-none focus:outline-none" size={50}/>
             </SheetTrigger>
             <SheetContent className='w-[300px] text-start bg-primary-200'>
                 <SheetHeader>
