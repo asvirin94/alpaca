@@ -19,7 +19,7 @@ export default async function Burger() {
             </SheetTrigger>
             <SheetContent className='w-[300px] text-start bg-primary-200'>
                 <SheetHeader>
-                    <SheetTitle className='text-[22px] leading-[26px] font-bold text-primary-300'>
+                    <SheetTitle className='text-[20px] leading-[26px] font-bold text-primary-300'>
                         {session
                             ? session?.user?.name
                             : (
@@ -27,7 +27,7 @@ export default async function Burger() {
                                     'use server'
                                     await signIn()
                                 }}>
-                                    <button type='submit'>ВОЙТИ</button>
+                                    <button type='submit'>Войти</button>
                                 </form>
                             )
                         }

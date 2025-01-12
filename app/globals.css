@@ -33,7 +33,7 @@ body {
   }
 
   .menu-item {
-    @apply font-semibold text-light-100 text-[14px] leading-[16px]
+    @apply font-semibold text-light-100 text-[16px] leading-[16px]
   }
 }
 
