@@ -1,19 +1,20 @@
 import { Suspense } from 'react'
 import { auth } from '@/auth'
 
-import { sanityFetch, SanityLive } from '@/sanity/lib/live'
+import { SanityLive } from '@/sanity/lib/live'
 import { WISHLISTS_BY_ID_QUERY } from '@/sanity/lib/queries'
 
 import WishlistsSlider from '@/components/WishlistsSlider'
 import { WishlistType } from '@/types'
+import { client } from '@/sanity/lib/client'
 
 export default async function Home() {
     const session = await auth()
     if (!session) return <div className='container flex-center'>Авторизуйтесь, чтобы увидеть свои списки</div>
 
-    const { data: wishlists } = await sanityFetch({
-        query: WISHLISTS_BY_ID_QUERY, params: {id: session?.id || null}
-    })
+    const wishlists = await client
+        .withConfig({useCdn: false})
+        .fetch(WISHLISTS_BY_ID_QUERY, {id: session?.id || null})
 
     return (
         <>
