@@ -8,8 +8,7 @@ export default function WishlistCard({title, src}: { title: string, src?: string
               src={src}
               alt={title}
               className='rounded-[20px] object-cover'
-              width={160}
-              height={240}
+              fill
             />}
             <p className='absolute z-10 bottom-[20px] left-1/2 -translate-x-1/2 max-w-[70%] text-center text-light-100
              font-bold text-[14px] leading-[15px] break-words'>
