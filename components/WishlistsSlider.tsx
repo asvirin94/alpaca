@@ -1,5 +1,3 @@
-import { SanityLive } from '@/sanity/lib/live'
-
 import {
     Carousel,
     CarouselContent,
@@ -61,8 +59,6 @@ export default function WishlistsSlider({ wishlists } : { wishlists?: WishlistTy
                 <CarouselPrevious className='hidden lg:block'/>
                 <CarouselNext className='hidden lg:block'/>
             </Carousel>
-
-            <SanityLive />
         </div>
     )
 }

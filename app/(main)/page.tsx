@@ -11,8 +11,6 @@ export default async function Home() {
     const session = await auth()
     if (!session) return <div className='container flex-center'>Авторизуйтесь, чтобы увидеть свои списки</div>
 
-    console.log(session?.id);
-
     const { data: wishlists } = await sanityFetch({
         query: WISHLISTS_BY_ID_QUERY, params: {id: session?.id || null}
     })

@@ -20,14 +20,6 @@ export const deleteItem = async (id: string, key: string) => {
 
 export const createWishlist = async (form: FormData) => {
     const session = await auth()
-    if (!session) {
-        return {
-            redirect: {
-                destination: '/',
-                permanent: false,
-            }
-        }
-    }
 
     const { originalTitle, image } = Object.fromEntries(form)
 
