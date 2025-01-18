@@ -25,6 +25,11 @@ export default defineType({
             validation: (Rule) => Rule.required(),
         }),
         defineField({
+            name: 'image',
+            type: 'string',
+            title: 'Image',
+        }),
+        defineField({
             name: 'friendLists',
             type: 'array',
             title: 'Friend Lists',

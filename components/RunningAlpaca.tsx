@@ -20,25 +20,29 @@ export default function RunningAlpaca() {
                 const containerWidth = containerRef?.current?.offsetWidth || 0
                 const alpacaWidth = 50
 
-                if (direction === 'right') {
-                    if (position + distance + alpacaWidth <= containerWidth) {
-                        setPosition(prevState => prevState + distance)
-                    } else {
-                        setDirection('left')
-                    }
-                } else if (direction === 'left') {
-                    if (position - distance - alpacaWidth >= 0) {
-                        setPosition(prevState => prevState - distance)
-                    } else {
-                        setDirection('right')
-                    }
+                if (direction === 'right' && position + distance + alpacaWidth <= containerWidth) {
+                    setPosition((prev) => prev + distance)
+                }
+
+                if (direction === 'right' && position + distance + alpacaWidth > containerWidth) {
+                    setDirection('left')
+                    setPosition((prev) => prev - distance)
+                }
+
+                if (direction === 'left' && position - distance - alpacaWidth >= 0) {
+                    setPosition((prev) => prev - distance)
+                }
+
+                if (direction === 'left' && position - distance - alpacaWidth < 0) {
+                    setDirection('right')
+                    setPosition((prev) => prev + distance)
                 }
             }
 
             if(action === 'turn') {
                 setDirection(prevState => prevState === 'right' ? 'left' : 'right')
             }
-        }, 900)
+        }, 1000)
 
         return () => clearInterval(interval)
     }, [direction, position])

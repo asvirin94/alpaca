@@ -1,11 +1,20 @@
 import Image from 'next/image'
 
-export default function WishlistCard({title, src}: {title: string, src?: string}) {
-    return(
+export default function WishlistCard({title, src}: { title: string, src?: string }) {
+    return (
         <div className="wishlist-card">
-            {src && <Image fill src={src} alt={title}/>}
-            <p className='relative mx-auto mt-[205px] text-light-100
-             font-bold text-[14px] leading-[15px] z-10'>{title.toUpperCase()}</p>
+            <div className='absolute w-full h-full z-10 bg-black opacity-30 rounded-[20px]'/>
+            {src && <Image
+              src={src}
+              alt={title}
+              className='rounded-[20px] object-cover'
+              width={160}
+              height={240}
+            />}
+            <p className='absolute z-10 bottom-[20px] left-1/2 -translate-x-1/2 max-w-[70%] text-center text-light-100
+             font-bold text-[14px] leading-[15px] break-words'>
+                {title.toUpperCase()}
+            </p>
         </div>
     )
 }

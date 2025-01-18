@@ -1,9 +1,5 @@
 import { defineQuery } from 'next-sanity'
 
-export const WISHLISTS_QUERY = defineQuery(
-    '*[_type == "wishList"]'
-)
-
 export const USER_BY_ID_QUERY = defineQuery(`
   *[_type == "user" && id == $id][0] {
     _id,
@@ -14,9 +10,10 @@ export const USER_BY_ID_QUERY = defineQuery(`
   `);
 
 export const WISHLISTS_BY_ID_QUERY = defineQuery(`
-  *[_type == "wishlist" && owner._ref == $id] {
+  *[_type == "wishlist" && owner._ref == $id] | order(_createdAt desc) {
     _id,
     originalTitle,
+    image
   }  
 `)
 

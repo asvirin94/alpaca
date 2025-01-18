@@ -9,6 +9,9 @@
 
 body {
   font-family: var(--font-raleway) !important;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 @layer utilities {
@@ -17,11 +20,19 @@ body {
   }
 
   .container {
-    @apply max-w-full xl:max-w-[1200px] mx-auto py-[25px] px-[20px] lg:py-[70px] lg:px-[40px]
+    @apply max-w-full xl:max-w-[1200px] mx-auto mb-[50px] px-[20px] lg:px-[40px]
+  }
+
+  .header {
+    @apply pt-[25px] lg:pt-[70px]
   }
 
   .flex-between {
     @apply flex justify-between items-center;
+  }
+
+  .flex-center {
+    @apply flex justify-center items-center;
   }
 
   .section-name {
@@ -29,7 +40,7 @@ body {
   }
 
   .wishlist-card {
-    @apply relative flex w-[160px] h-[240px] rounded-[20px] bg-primary
+    @apply relative flex w-[160px] h-[240px] rounded-[20px]
   }
 
   .menu-item {

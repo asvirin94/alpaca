@@ -5,6 +5,10 @@ export function cn(...inputs: ClassValue[]) {
     return twMerge(clsx(inputs))
 }
 
+export function parseServerActionResponse<T>(response: T) {
+    return JSON.parse(JSON.stringify(response));
+}
+
 export const generateAlpacaAction = () => {
     const randomNumber = Math.floor(Math.random() * 100) + 1;
 

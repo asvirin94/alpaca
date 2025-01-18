@@ -1,16 +1,25 @@
-import Header from '@/components/Header'
-import WishlistsSlider from '@/components/WishlistsSlider'
-import Footer from '@/components/Footer'
 import { Suspense } from 'react'
+import { auth } from '@/auth'
 
-export default function Home() {
+import { sanityFetch, SanityLive } from '@/sanity/lib/live'
+import { WISHLISTS_BY_ID_QUERY } from '@/sanity/lib/queries'
+
+import WishlistsSlider from '@/components/WishlistsSlider'
+
+export default async function Home() {
+    const session = await auth()
+    if (!session) return <div className='container flex-center'>Авторизуйтесь, чтобы увидеть свои списки</div>
+
+    const { data: wishlists } = await sanityFetch({
+        query: WISHLISTS_BY_ID_QUERY, params: {id: session?.id || null}
+    })
+
     return (
         <>
             <div className='container'>
-                <Header/>
                 <h2 className='section-name'>МОИ СПИСКИ</h2>
                 <Suspense fallback={<div>Загрузка...</div>}>
-                    <WishlistsSlider/>
+                    <WishlistsSlider wishlists={wishlists} />
                 </Suspense>
                 <h2 className='section-name'>СПИСКИ ДРУЗЕЙ</h2>
                 <Suspense fallback={<div>Загрузка...</div>}>
@@ -21,7 +30,8 @@ export default function Home() {
                     <WishlistsSlider/>
                 </Suspense>
             </div>
-            <Footer/>
+
+            <SanityLive />
         </>
     )
 }

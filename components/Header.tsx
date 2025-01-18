@@ -1,3 +1,5 @@
+import Link from 'next/link'
+
 import Logo from '@/components/Logo'
 import Burger from '@/components/Burger'
 import HeaderImage from '@/components/HeaderImage'
@@ -5,9 +7,11 @@ import RunningAlpaca from '@/components/RunningAlpaca'
 
 export default function Header() {
     return(
-        <header>
+        <header className='container header'>
             <div className="relative flex-between h-[62px]">
-                <Logo />
+                <Link href='/'>
+                    <Logo />
+                </Link>
                 <div className='hidden lg:flex absolute left-1/2 bottom-0 -translate-x-1/2 w-[397px] h-[34px] items-end'>
                     <RunningAlpaca />
                     <HeaderImage />
