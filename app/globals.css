@@ -24,7 +24,7 @@ body {
   }
 
   .header {
-    @apply pt-[25px] lg:pt-[70px]
+    @apply pt-[25px] lg:pt-[70px] mb-0
   }
 
   .flex-between {

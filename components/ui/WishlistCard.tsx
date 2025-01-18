@@ -10,7 +10,7 @@ export default function WishlistCard({title, src}: { title: string, src?: string
               className='rounded-[20px] object-cover'
               fill
             />}
-            <p className='absolute z-10 bottom-[20px] left-1/2 -translate-x-1/2 max-w-[70%] text-center text-light-100
+            <p className='absolute z-10 bottom-[20px] left-1/2 -translate-x-1/2 max-w-[90%] text-center text-light-100
              font-bold text-[14px] leading-[15px] break-words'>
                 {title.toUpperCase()}
             </p>

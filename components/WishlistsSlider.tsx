@@ -10,33 +10,10 @@ import AddListCard from '@/components/AddListCard'
 
 import { WishlistType } from '@/types'
 
-const mock_lists = [
-    {
-        originalTitle: 'косметика',
-        image: '/cosmetic.jpg'
-    },
-    {
-        originalTitle: 'декор для дома',
-        image: '/decor.jpg'
-    },
-    {
-        originalTitle: 'мода',
-        image: '/fashion.jpg'
-    },
-    {
-        originalTitle: 'спорт',
-        image: '/sport.jpg'
-    },
-    {
-        originalTitle: 'вкусняшки',
-        image: '/tasties.jpg'
-    },
-]
-
-export default function WishlistsSlider({ wishlists } : { wishlists?: WishlistType[] }) {
-    const lists = wishlists && wishlists?.length > 0
-        ? [...wishlists, ...mock_lists]
-        : mock_lists
+export default function WishlistsSlider(
+    {wishlists, myOwn}: { wishlists?: WishlistType[], myOwn?: boolean }
+) {
+    if (!wishlists?.length) return <div className='text-center'>Здесь пока ничего нет</div>
 
     return (
         <div className='flex'>
@@ -47,10 +24,12 @@ export default function WishlistsSlider({ wishlists } : { wishlists?: WishlistTy
                 className="max-w-[280px] xxs:max-w-[340px] xs:max-w-[520px] mx-auto"
             >
                 <CarouselContent>
-                    <CarouselItem>
-                        <AddListCard />
-                    </CarouselItem>
-                    {lists.map((item, index) => (
+                    {myOwn && (
+                        <CarouselItem>
+                            <AddListCard/>
+                        </CarouselItem>
+                    )}
+                    {wishlists?.map((item, index) => (
                         <CarouselItem key={`${index}-list`}>
                             <WishlistCard title={item.originalTitle} src={item.image}/>
                         </CarouselItem>

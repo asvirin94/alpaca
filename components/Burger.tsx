@@ -1,13 +1,16 @@
+import Link from 'next/link'
 import { Menu } from 'lucide-react'
+
+import { auth, signIn, signOut } from '@/auth'
+
 import {
     Sheet,
+    SheetClose,
     SheetContent,
     SheetHeader,
     SheetTitle,
     SheetTrigger
 } from '@/components/ui/sheet'
-import Link from 'next/link'
-import { auth, signIn, signOut } from '@/auth'
 
 export default async function Burger() {
     const session = await auth()
@@ -42,22 +45,30 @@ export default async function Burger() {
                         <ul className='!mt-[22px] flex flex-col gap-[21px]'>
                             <li className='menu-item'>
                                 <Link href='/'>
-                                    ГЛАВНАЯ
+                                    <SheetClose>
+                                        ГЛАВНАЯ
+                                    </SheetClose>
                                 </Link>
                             </li>
                             <li className='menu-item'>
                                 <Link href='/'>
-                                    МОИ СПИСКИ
+                                    <SheetClose>
+                                        МОИ СПИСКИ
+                                    </SheetClose>
+                                </Link>
+                            </li>
+                            <li className='menu-item'>
+                                <Link href='/friends-lists'>
+                                    <SheetClose>
+                                        СПИСКИ ДРУЗЕЙ
+                                    </SheetClose>
                                 </Link>
                             </li>
                             <li className='menu-item'>
                                 <Link href='/'>
-                                    СПИСКИ ДРУЗЕЙ
-                                </Link>
-                            </li>
-                            <li className='menu-item'>
-                                <Link href='/'>
-                                    НАСТРОЙКИ
+                                    <SheetClose>
+                                        НАСТРОЙКИ
+                                    </SheetClose>
                                 </Link>
                             </li>
                             <li className='menu-item'>

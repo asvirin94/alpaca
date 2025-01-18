@@ -20,7 +20,9 @@ export default {
   				DEFAULT: '#828282',
 				100: '#D9D9D9',
 				200: '#333333',
-				300: '#BDBDBD'
+				300: '#BDBDBD',
+				400: '#F2F2F2',
+				inputBorder: 'rgba(130, 130, 130, 0.5)'
   			},
   			light: {
   				'100': '#FDFBFA',
