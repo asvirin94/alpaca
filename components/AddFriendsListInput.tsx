@@ -34,7 +34,7 @@ export default function AddFriendsListInput({userId}: { userId: string }) {
         <form className='flex' action={handleSubmit}>
             <Input
                 value={value}
-                className='h-[44px] rounded-tl-[20px] rounded-bl-[20px] bg-primary-400
+                className='h-[44px] rounded-none rounded-tl-[20px] rounded-bl-[20px] bg-primary-400
             border border-primary-inputBorder text-[13px] font-semibold text-primary'
                 placeholder='ID'
                 onChange={(e) => setValue(e.currentTarget.value)}
