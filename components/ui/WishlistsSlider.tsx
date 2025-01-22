@@ -13,8 +13,8 @@ import { WishlistType } from '@/types'
 export default function WishlistsSlider(
     { personal, friends, wishlists }: { personal?: boolean, friends?: boolean, wishlists?: WishlistType[]  }
 ) {
-    if (!personal && !friends) return (
-        <div className="lists-content text-center">
+    if ((!personal && !friends) || (friends && !wishlists?.length)) return (
+        <div className="lists-content text-left">
             Здесь пока ничего нет
         </div>
     )

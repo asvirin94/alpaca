@@ -20,7 +20,7 @@ export default async function Page() {
             <AddFriendsListInput userId={session.id}/>
 
             <h2 className='section-name section-title'>СПИСКИ ДРУЗЕЙ</h2>
-            <WishlistsWrapper wishlists={wishlists} />
+            <WishlistsWrapper friends wishlists={wishlists} />
 
             <SanityLive />
         </div>
