@@ -1,8 +1,20 @@
 import Image from 'next/image'
 
-export default function WishlistCard({title, src}: { title: string, src?: string }) {
+import { auth } from '@/auth'
+
+import WishlistCardButtons from '@/components/WishlistCardButtons'
+
+export default async function WishlistCard(
+    {title, src, id, owner}: { title: string, src?: string, id: string, owner: {_id: string, name: string} },
+) {
+    const session = await auth()
+    if (!session) return null
+
+    const isMine = session.id === owner._id
+
     return (
         <div className="wishlist-card">
+            <WishlistCardButtons isMine={isMine} id={id} userId={session.id} />
             <div className='absolute w-full h-full z-10 bg-black opacity-30 rounded-[20px]'/>
             {src && <Image
               src={src}

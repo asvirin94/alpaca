@@ -64,6 +64,17 @@ export const addFriendsWishlist = async (
     }
 }
 
+export const deleteMyWishlist = async (wishlistId: string) => {
+    await writeClient.delete(wishlistId)
+}
+
+export const deleteFriendsWishlist = async (wishlistId: string, userId: string) => {
+    await writeClient
+        .patch(wishlistId)
+        .unset([`friendLists[friend._ref == "${userId}"]`])
+        .commit()
+}
+
 export const createItem = async (
     item: WishListItemType, id: string
 ) => {

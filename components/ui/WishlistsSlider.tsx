@@ -11,9 +11,13 @@ import AddListCard from '@/components/AddListCard'
 import { WishlistType } from '@/types'
 
 export default function WishlistsSlider(
-    {wishlists, myOwn}: { wishlists?: WishlistType[], myOwn?: boolean }
+    { personal, friends, wishlists }: { personal?: boolean, friends?: boolean, wishlists?: WishlistType[]  }
 ) {
-    if (!wishlists?.length) return <div className='text-center'>Здесь пока ничего нет</div>
+    if (!personal && !friends) return (
+        <div className="lists-content text-center">
+            Здесь пока ничего нет
+        </div>
+    )
 
     return (
         <div className='flex'>
@@ -21,17 +25,22 @@ export default function WishlistsSlider(
                 opts={{
                     align: "start",
                 }}
-                className="max-w-[280px] xxs:max-w-[340px] xs:max-w-[520px] mx-auto"
+                className="lists-content"
             >
                 <CarouselContent>
-                    {myOwn && (
+                    {personal && (
                         <CarouselItem>
                             <AddListCard/>
                         </CarouselItem>
                     )}
                     {wishlists?.map((item, index) => (
                         <CarouselItem key={`${index}-list`}>
-                            <WishlistCard title={item.originalTitle} src={item.image}/>
+                            <WishlistCard
+                                id={item._id}
+                                title={item.originalTitle}
+                                src={item.image}
+                                owner={item.owner}
+                            />
                         </CarouselItem>
                     ))}
                 </CarouselContent>

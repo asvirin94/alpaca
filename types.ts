@@ -1,7 +1,8 @@
 export type WishlistType = {
     _id: string;
     originalTitle: string;
-    image: string
+    image: string,
+    owner: { _id: string; name: string },
 }
 
 export type WishListItemType = {

@@ -51,7 +51,7 @@ export default async function Burger() {
                                 </Link>
                             </li>
                             <li className='menu-item'>
-                                <Link href='/'>
+                                <Link href='/my-lists'>
                                     <SheetClose>
                                         МОИ СПИСКИ
                                     </SheetClose>
@@ -65,7 +65,7 @@ export default async function Burger() {
                                 </Link>
                             </li>
                             <li className='menu-item'>
-                                <Link href='/'>
+                                <Link href='/settings'>
                                     <SheetClose>
                                         НАСТРОЙКИ
                                     </SheetClose>

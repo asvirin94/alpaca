@@ -35,8 +35,16 @@ body {
     @apply flex justify-center items-center;
   }
 
+  .lists-content {
+    @apply w-[280px] xxs:w-[340px] xs:w-[520px] mx-auto;
+  }
+
+  .section-title {
+    @apply mt-[50px] mb-[25px]
+  }
+
   .section-name {
-    @apply text-primary text-[16px] leading-[19px] mt-[50px] mb-[25px] font-semibold
+    @apply text-primary text-[16px] leading-[19px] font-semibold
   }
 
   .wishlist-card {

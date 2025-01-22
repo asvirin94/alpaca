@@ -13,7 +13,10 @@ export const WISHLISTS_BY_ID_QUERY = defineQuery(`
   *[_type == "wishlist" && owner._ref == $id] | order(_createdAt desc) {
     _id,
     originalTitle,
-    image
+    image,
+    owner->{
+    _id,
+    }
   }  
 `)
 

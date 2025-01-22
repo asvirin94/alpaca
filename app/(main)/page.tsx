@@ -7,13 +7,11 @@ import { SanityLive } from '@/sanity/lib/live'
 import { client } from '@/sanity/lib/client'
 import { FRIENDS_WISHLISTS_BY_ID_QUERY, WISHLISTS_BY_ID_QUERY } from '@/sanity/lib/queries'
 
-import WishlistsSlider from '@/components/WishlistsSlider'
-import { WishlistType } from '@/types'
-
+import WishlistsSlider from '@/components/ui/WishlistsSlider'
 
 export default async function Home() {
     const session = await auth()
-    if (!session) return <h2 className='container section-name text-center'>Авторизуйтесь, чтобы увидеть свои
+    if (!session) return <h2 className='container section-title section-name text-center'>Авторизуйтесь, чтобы увидеть свои
         списки</h2>
 
     const wishlists = await client
@@ -28,24 +26,27 @@ export default async function Home() {
     return (
         <>
             <div className='container'>
-                <ul>
-                    {wishlists.map((wishlist: WishlistType) => (
-                        <li key={wishlist._id}>{wishlist._id}</li>
-                    ))}
-                </ul>
-                <h2 className='section-name'>МОИ СПИСКИ</h2>
+                <div className='section-title'>
+                    <Link href='/my-lists'>
+                        <h2 className='section-name'>МОИ СПИСКИ</h2>
+                    </Link>
+                </div>
                 <Suspense fallback={<div>Загрузка...</div>}>
-                    <WishlistsSlider myOwn wishlists={wishlists}/>
+                    <WishlistsSlider personal wishlists={wishlists}/>
                 </Suspense>
 
-                <Link href='/friends-lists'>
-                    <h2 className='section-name'>СПИСКИ ДРУЗЕЙ</h2>
-                </Link>
+                <div className='section-title'>
+                    <Link href='/friends-lists'>
+                        <h2 className='section-name'>СПИСКИ ДРУЗЕЙ</h2>
+                    </Link>
+                </div>
                 <Suspense fallback={<div>Загрузка...</div>}>
-                    <WishlistsSlider wishlists={friendsWishlists}/>
+                    <WishlistsSlider friends wishlists={friendsWishlists}/>
                 </Suspense>
 
-                <h2 className='section-name'>РЕКОМЕНДАЦИИ</h2>
+                <div className='section-title'>
+                    <h2 className='section-name'>РЕКОМЕНДАЦИИ</h2>
+                </div>
                 <Suspense fallback={<div>Загрузка...</div>}>
                     <WishlistsSlider/>
                 </Suspense>
