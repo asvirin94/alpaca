@@ -22,7 +22,7 @@ export default function WishlistsWrapper({friends, wishlists}: { friends?: boole
 
     return (
         <section className='flex flex-wrap gap-[20px] lists-content'>
-            <AddListCard/>
+            {!friends && <AddListCard/>}
             {wishlists.map((wishlist: WishlistType) => (
                 <WishlistCard
                     key={wishlist._id}
